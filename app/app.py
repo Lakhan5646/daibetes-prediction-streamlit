@@ -5,7 +5,11 @@ import joblib
 import os
 st.write(os.getcwd())
 
-model = joblib.load("C:/Users/hp/Desktop/Minor/models/best_diabetes_model.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "best_daibetes_model.pkl")
+
+model = joblib.load(MODEL_PATH)
 
 st.title("🩺 Diabetes Risk Prediction App")
 st.write("Enter patient details to predict diabetes risk")
@@ -31,4 +35,5 @@ if st.button("Predict Diabetes Risk"):
     elif probability < 0.7:
         st.warning(f"Medium Risk of Diabetes (Score: {probability:.2f})")
     else:
+
         st.error(f"High Risk of Diabetes (Score: {probability:.2f})")
