@@ -7,7 +7,7 @@ st.write(os.getcwd())
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "best_daibetes_model.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "best_diabetes_model.pkl")
 
 model = joblib.load(MODEL_PATH)
 
@@ -37,3 +37,4 @@ if st.button("Predict Diabetes Risk"):
     else:
 
         st.error(f"High Risk of Diabetes (Score: {probability:.2f})")
+
